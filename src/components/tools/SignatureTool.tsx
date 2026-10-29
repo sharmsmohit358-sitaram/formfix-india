@@ -37,7 +37,10 @@ export default function SignatureTool() {
       <h2 className="text-xl font-bold">Upload and resize</h2>
       <p className="text-sm text-slate-600 mt-1">Upload a scanned or photographed signature. Output is JPEG, checked to be between 10,240 and 20,480 bytes. No padding is added to reach the range. This tool does not verify handwriting authenticity.</p>
       <label className="block mt-4 font-semibold" htmlFor="sig-file">Choose a signature image</label>
-      <input id="sig-file" ref={inputRef} className="input mt-1" type="file" accept="image/jpeg,image/png,image/webp,image/gif" onChange={(e) => onFile(e.target.files?.[0])} />
+      <div className="mt-1 rounded-2xl border-2 border-dashed border-violet-200 bg-violet-50/60 p-3">
+        <input id="sig-file" ref={inputRef} className="w-full text-sm text-slate-600 file:mr-3 file:rounded-full file:border-0 file:bg-violet-600 file:px-4 file:py-2 file:font-bold file:text-white hover:file:bg-violet-700" type="file" accept="image/jpeg,image/png,image/webp,image/gif" onChange={(e) => onFile(e.target.files?.[0])} />
+        <p className="text-xs text-slate-500 mt-2">📁 {file ? `Selected: ${file.name}` : 'No file chosen yet'} · Or drag a file onto the picker in a desktop browser.</p>
+      </div>
       {orig && <p className="text-sm mt-2">Original: {orig.w} × {orig.h} px · ratio {ratio}:1 {file ? `· ${formatBytes(file.size)}` : ''}</p>}
       <div className="grid md:grid-cols-2 gap-4 mt-4">
         <div><label className="font-semibold" htmlFor="crop">Crop width: {cropW}% (centred, no stretching)</label><input id="crop" className="w-full" type="range" min={40} max={100} value={cropW} onChange={(e) => setCropW(Number(e.target.value))} /></div>
@@ -45,7 +48,7 @@ export default function SignatureTool() {
       </div>
       <label className="flex items-center gap-2 mt-3"><input type="checkbox" checked={whiten} onChange={(e) => setWhiten(e.target.checked)} /> Whiten background (helps grey paper scans)</label>
       <label className="block mt-3 font-semibold" htmlFor="guide">Aspect-ratio guide</label>
-      <select id="guide" className="input" value={guide} onChange={(e) => setGuide(e.target.value as any)}>
+      <select id="guide" className="w-full max-w-full rounded-2xl border border-violet-200 bg-white px-3 py-2.5 font-medium text-slate-800" value={guide} onChange={(e) => setGuide(e.target.value as any)}>
         <option value="3:1">3:1 — matches about 6 cm × 2 cm (SSC CHT 2026, section 8.7)</option>
         <option value="2:1">2:1 — matches about 4 cm × 2 cm (some annexures / other forms)</option>
         <option value="none">No guide</option>

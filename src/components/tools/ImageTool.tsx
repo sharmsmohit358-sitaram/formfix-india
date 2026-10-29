@@ -35,8 +35,10 @@ export default function ImageTool({ targetKiB, minKiB, title }: { targetKiB: num
       <h2 className="text-xl font-bold">Upload and resize</h2>
       <p className="text-sm text-slate-600 mt-1">Your file never leaves this browser. Supported inputs: JPEG, PNG, WebP, GIF (checked from file contents, not the name). Limit 15 MB, 25 megapixels. Output is JPEG — transparent PNG areas become white.</p>
       <label className="block mt-4 font-semibold" htmlFor="file-input">Choose an image</label>
-      <input id="file-input" ref={inputRef} className="input mt-1" type="file" accept="image/jpeg,image/png,image/webp,image/gif" onChange={(e) => onFile(e.target.files?.[0])} />
-      <p className="text-xs text-slate-500 mt-1">Or drag a file onto the picker in a desktop browser. If you cannot drag, the button above works the same way.</p>
+      <div className="mt-1 rounded-2xl border-2 border-dashed border-violet-200 bg-violet-50/60 p-3">
+        <input id="file-input" ref={inputRef} className="w-full text-sm text-slate-600 file:mr-3 file:rounded-full file:border-0 file:bg-violet-600 file:px-4 file:py-2 file:font-bold file:text-white hover:file:bg-violet-700" type="file" accept="image/jpeg,image/png,image/webp,image/gif" onChange={(e) => onFile(e.target.files?.[0])} />
+        <p className="text-xs text-slate-500 mt-2">📁 {file ? `Selected: ${file.name}` : 'No file chosen yet'} · Or drag a file onto the picker in a desktop browser.</p>
+      </div>
       {orig && <div className="grid md:grid-cols-2 gap-4 mt-4">
         <figure><img src={orig.url} alt="Original upload preview" className="max-h-64 w-auto rounded border" /><figcaption className="text-sm">Original: {orig.w} × {orig.h} px · {file ? formatBytes(file.size) : ''}</figcaption></figure>
         {result && <figure><img src={result.url} alt="Processed output preview" className="max-h-64 w-auto rounded border" /><figcaption className="text-sm">Output: {result.width} × {result.height} px · {formatBytes(result.bytes)} · JPEG · quality {result.quality}</figcaption></figure>}

@@ -3,7 +3,7 @@
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
 body{font-family:Inter,Manrope,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--navy)}
-a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #7c3aed;outline-offset:3px;box-shadow:0 0 0 5px rgba(124,58,237,.25)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #7c3aed;outline-offset:0;box-shadow:0 0 0 3px rgba(124,58,237,.18)}
 .card{background:#fff;border:1px solid #f0e6ff;border-radius:24px;box-shadow:0 4px 20px rgba(124,58,237,.08);transition:transform .15s ease,box-shadow .15s ease}
 .tool-card:hover{transform:translateY(-4px) scale(1.01);box-shadow:0 16px 32px rgba(124,58,237,.18)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:linear-gradient(135deg,#7c3aed,#db2777);color:#fff;padding:.7rem 1.1rem;border-radius:999px;font-weight:800;min-height:48px;box-shadow:0 6px 16px rgba(219,39,119,.3);transition:transform .15s ease,box-shadow .15s ease}

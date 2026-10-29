@@ -50,7 +50,10 @@ export default function PdfTool({ targetKiB }: { targetKiB: number }) {
       <h2 className="text-xl font-bold">Upload and compress</h2>
       <p className="text-sm text-slate-600 mt-1">Your PDF never leaves this browser. A successful output is always a valid PDF at or below {targetKiB} KB, verified by reopening it. Compression is not guaranteed for every PDF.</p>
       <label className="block mt-4 font-semibold" htmlFor="pdf-file">Choose a PDF</label>
-      <input id="pdf-file" ref={inputRef} className="input mt-1" type="file" accept="application/pdf" onChange={(e) => onFile(e.target.files?.[0])} />
+      <div className="mt-1 rounded-2xl border-2 border-dashed border-violet-200 bg-violet-50/60 p-3">
+        <input id="pdf-file" ref={inputRef} className="w-full text-sm text-slate-600 file:mr-3 file:rounded-full file:border-0 file:bg-violet-600 file:px-4 file:py-2 file:font-bold file:text-white hover:file:bg-violet-700" type="file" accept="application/pdf" onChange={(e) => onFile(e.target.files?.[0])} />
+        <p className="text-xs text-slate-500 mt-2">📁 {file ? `Selected: ${file.name}` : 'No file chosen yet'} · Or drag a file onto the picker in a desktop browser.</p>
+      </div>
       {info && <p className="text-sm mt-2">Pages: {info.pages} · Original: {file ? formatBytes(file.size) : ''}</p>}
       {(info?.maybeSigned || info?.hasForms) && <p role="alert" className="mt-3 rounded bg-amber-50 border border-amber-200 p-3 text-amber-900">Warning: this PDF may contain a signature or a form. Rasterizing it can break signatures, form fields and document integrity. Do not rasterize a legally significant or signed document without checking with the issuing authority.</p>}
       {error && <p role="alert" className="mt-4 rounded bg-red-50 border border-red-200 p-3 text-red-800">{error}</p>}
