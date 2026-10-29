@@ -11,23 +11,22 @@ const tools = [
 ];
 ---
 <Base title="FormFix India — Fix Images, Signatures & PDFs for Online Forms" description="Resize images to 20, 50 or 100 KB, prepare signatures to 10–20 KB, compress PDFs under 100 or 200 KB, and check files against application rules — all in your browser, with no uploads.">
-  <section class="hero rounded-3xl p-6 md:p-10 text-white">
-    <p class="inline-block rounded-full bg-white/20 px-3 py-1 text-sm font-bold">Free &nbsp;•&nbsp; No sign-up &nbsp;•&nbsp; No upload</p>
-    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mt-4 max-w-3xl">Form photo rejected for size? Fix it in under a minute.</h1>
-    <p class="text-lg md:text-xl text-teal-50 mt-4 max-w-2xl">Resize your photo, signature or PDF to the exact size your form asks for — right here on your phone, without sending your file anywhere.</p>
-    <div class="flex flex-wrap gap-3 mt-6">
+  <section class="hero rounded-2xl md:rounded-3xl p-3 md:p-10 text-white">
+    <p class="inline-block rounded-full bg-white/20 px-2.5 py-1 text-[11px] md:text-sm font-bold">Free &nbsp;•&nbsp; No sign-up &nbsp;•&nbsp; No upload</p>
+    <h1 class="text-[27px] leading-[1.15] md:text-6xl md:leading-tight font-extrabold mt-2 md:mt-4 max-w-3xl">Fix your form photo in a minute.</h1>
+    <p class="text-[15px] md:text-xl text-teal-50 mt-2 md:mt-4 max-w-2xl">Resize photo, signature or PDF to your form's exact size — on your phone, no upload.</p>
+    <div class="flex flex-wrap items-center gap-2 md:gap-3 mt-3 md:mt-6">
       <a class="btn btn-hero" href="/tools/image-to-20kb/">Fix my photo — 20 KB →</a>
-      <a class="btn btn-hero-secondary" href="#tools">See all 6 tools</a>
+      <a class="underline font-bold text-sm md:text-base" href="#tools">See all 6 tools ↓</a>
     </div>
-    <div class="flex flex-wrap gap-2 mt-6" aria-label="Trust points">
+    <div class="hidden md:flex flex-wrap gap-2 mt-6" aria-label="Trust points">
       <span class="chip">✓ No registration</span>
       <span class="chip">✓ No payment</span>
       <span class="chip">✓ File stays on your device</span>
-      <span class="chip">✓ Size checked by actual bytes</span>
     </div>
-    <div class="mt-6 rounded-2xl bg-white/10 p-4 max-w-2xl">
-      <p class="text-sm"><strong>Example from our own test:</strong> a 4.39&nbsp;MB photo → <strong>20,176 bytes</strong> with the 20&nbsp;KB tool. Your result depends on your photo — a detailed photo may come out smaller or softer to fit.</p>
-      <p class="text-sm mt-2">आपकी फ़ाइल सर्वर पर नहीं जाती — सब कुछ आपके ही फोन और ब्राउज़र में होता है।</p>
+    <div class="mt-3 md:mt-6 rounded-lg md:rounded-2xl bg-white/10 px-3 py-2 md:p-4 max-w-2xl">
+      <p class="text-xs md:text-sm"><strong>Example:</strong> 4.39&nbsp;MB photo → <strong>20,176 bytes</strong>.</p>
+      <p class="text-xs md:text-sm mt-1 hidden md:block">आपकी फ़ाइल सर्वर पर नहीं जाती — सब कुछ आपके ही फोन और ब्राउज़र में होता है।</p>
     </div>
   </section>
 
@@ -88,8 +87,4 @@ const tools = [
     </div>
   </section>
 
-  <div class="h-20 md:hidden" aria-hidden="true"></div>
-  <div class="fixed bottom-0 left-0 right-0 z-20 md:hidden bg-white/95 backdrop-blur border-t p-3">
-    <a class="btn w-full" href="/tools/image-to-20kb/">Fix a file now — free →</a>
-  </div>
 </Base>

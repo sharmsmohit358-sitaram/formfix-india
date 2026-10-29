@@ -11,6 +11,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 .btn-secondary{background:#fff;color:var(--navy);border:1px solid #cbd5e1}
 .btn-secondary:hover{background:#f1f5f9}
 .btn-hero{background:#fff;color:var(--navy);font-size:1.05rem;padding:.85rem 1.4rem}
+@media (max-width:767px){.btn-hero{font-size:1rem;padding:.7rem 1.1rem}.chip{font-size:.78rem;padding:.3rem .6rem}}
 .btn-hero:hover{background:#fef3e2}
 .btn-hero-secondary{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.8)}
 .btn-hero-secondary:hover{background:rgba(255,255,255,.15)}
