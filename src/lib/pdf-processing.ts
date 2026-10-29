@@ -33,7 +33,9 @@ export async function rasterizePdf(input: Uint8Array, opts: RasterOptions): Prom
   const pdf = await loading.promise;
   const pageCount = pdf.numPages;
   if (pageCount > 30) throw new Error('This PDF has more than 30 pages. Rasterizing it here would be slow and memory-heavy on a phone; split it first.');
-  const scales = [1.2, 1.0, 0.8, 0.6, 0.45];
+  // Extended down to 0.12 after Stage 1 testing: at 0.45x a noisy 3000x2000 page was still ~567 KB.
+  // Quality drops with scale (0.7 -> 0.55 -> 0.4) instead of a fixed 0.7, which previously wasted the small scales.
+  const scales = [1.2, 1.0, 0.8, 0.6, 0.45, 0.32, 0.22, 0.15, 0.12];
   const qualities = [0.8, 0.65, 0.5, 0.35];
   let last: { bytes: Uint8Array; w: number; h: number } | null = null;
   for (const scale of scales) {
@@ -47,7 +49,8 @@ export async function rasterizePdf(input: Uint8Array, opts: RasterOptions): Prom
       const ctx = canvas.getContext('2d'); if (!ctx) throw new Error('Canvas is not available.');
       ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, canvas.width, canvas.height);
       await page.render({ canvasContext: ctx, viewport }).promise;
-      const blob: Blob = await new Promise((res, rej) => canvas.toBlob((b) => b ? res(b) : rej(new Error('Page encoding failed.')), 'image/jpeg', 0.7));
+      const jpegQuality = scale >= 0.8 ? 0.7 : scale >= 0.38 ? 0.55 : 0.4;
+      const blob: Blob = await new Promise((res, rej) => canvas.toBlob((b) => b ? res(b) : rej(new Error('Page encoding failed.')), 'image/jpeg', jpegQuality));
       const arr = new Uint8Array(await blob.arrayBuffer());
       const img = await outDoc.embedJpg(arr);
       const pg = outDoc.addPage([img.width, img.height]); pg.drawImage(img, { x: 0, y: 0, width: img.width, height: img.height });

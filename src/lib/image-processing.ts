@@ -72,7 +72,9 @@ export async function processImage(file: File, opts: ProcessOptions): Promise<Pr
     const target = opts.targetBytes; const minBytes = opts.minBytes ?? 0;
     // Bounded search: quality steps, then scale steps. Every candidate is measured by actual bytes.
     const qualities = [0.92, 0.85, 0.78, 0.7, 0.62, 0.54, 0.46, 0.38, 0.3];
-    const scales = [1, 0.85, 0.7, 0.55, 0.4, 0.3];
+    // Extended down to 0.09 after Stage 1 testing: a detailed 3000x2000 photo still exceeded 20 KB at 0.3x.
+    // Small outputs trigger the readability warning in the UI, so shrinking further is honest, not silent.
+    const scales = [1, 0.85, 0.7, 0.55, 0.4, 0.3, 0.22, 0.16, 0.12, 0.09];
     type BestCandidate = { blob: Blob; quality: number; scale: number; w: number; h: number };
     let best: BestCandidate | null = null;
     let bestOver: BestCandidate | null = null;
