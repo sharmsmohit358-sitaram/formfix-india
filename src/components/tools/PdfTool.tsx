@@ -42,7 +42,7 @@ export default function PdfTool({ targetKiB }: { targetKiB: number }) {
   function reset() { setFile(null); setInfo(null); setResult(null); setError(''); setConsent(false); if (inputRef.current) inputRef.current.value = ''; }
   return (
     <div className="card p-5">
-      <h2 className="text-xl font-bold">Compress PDF under {targetKiB} KB</h2>
+      <h2 className="text-xl font-bold">Upload and compress</h2>
       <p className="text-sm text-slate-600 mt-1">Your PDF never leaves this browser. A successful output is always a valid PDF at or below {targetKiB} KB, verified by reopening it. Compression is not guaranteed for every PDF.</p>
       <label className="block mt-4 font-semibold" htmlFor="pdf-file">Choose a PDF</label>
       <input id="pdf-file" ref={inputRef} className="input mt-1" type="file" accept="application/pdf" onChange={(e) => onFile(e.target.files?.[0])} />

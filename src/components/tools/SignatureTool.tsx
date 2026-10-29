@@ -33,7 +33,7 @@ export default function SignatureTool() {
   const ratio = orig ? (orig.w / orig.h).toFixed(2) : '';
   return (
     <div className="card p-5">
-      <h2 className="text-xl font-bold">Signature resize to 10–20 KB</h2>
+      <h2 className="text-xl font-bold">Upload and resize</h2>
       <p className="text-sm text-slate-600 mt-1">Upload a scanned or photographed signature. Output is JPEG, checked to be between 10,240 and 20,480 bytes. No padding is added to reach the range. This tool does not verify handwriting authenticity.</p>
       <label className="block mt-4 font-semibold" htmlFor="sig-file">Choose a signature image</label>
       <input id="sig-file" ref={inputRef} className="input mt-1" type="file" accept="image/jpeg,image/png,image/webp,image/gif" onChange={(e) => onFile(e.target.files?.[0])} />

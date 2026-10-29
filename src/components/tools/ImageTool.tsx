@@ -31,7 +31,7 @@ export default function ImageTool({ targetKiB, minKiB, title }: { targetKiB: num
   const warn = result ? readabilityWarning(result.width, result.height, result.bytes) : null;
   return (
     <div className="card p-5">
-      <h2 className="text-xl font-bold">{title}</h2>
+      <h2 className="text-xl font-bold">Upload and resize</h2>
       <p className="text-sm text-slate-600 mt-1">Your file never leaves this browser. Supported inputs: JPEG, PNG, WebP, GIF (checked from file contents, not the name). Limit 15 MB, 25 megapixels. Output is JPEG — transparent PNG areas become white.</p>
       <label className="block mt-4 font-semibold" htmlFor="file-input">Choose an image</label>
       <input id="file-input" ref={inputRef} className="input mt-1" type="file" accept="image/jpeg,image/png,image/webp,image/gif" onChange={(e) => onFile(e.target.files?.[0])} />
