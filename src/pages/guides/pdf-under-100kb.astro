@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="How to Compress PDF Under 100 KB | PDF Size Kaise Kam Kare — FormFix India" description="How to compress a PDF under 100 KB: try preserve mode first, understand when rasterize mode helps, what it loses, and what to do if a scanned PDF cannot fit at readable quality.">
+<nav aria-label="Breadcrumb"><ol class="flex gap-2 text-sm text-slate-500"><li><a class="underline" href="/">Home</a></li><li aria-hidden="true">/</li><li><a class="underline" href="/guides/">Guides</a></li><li aria-hidden="true">/</li><li aria-current="page">PDF under 100 KB</li></ol></nav>
+<h1 class="text-3xl font-extrabold mt-4">How to compress a PDF under 100 KB</h1>
+<p class="text-slate-600 mt-2 max-w-2xl">A PDF under 100 KB is a tight limit, especially for scanned pages. There are two honest ways to try — and one important trade-off you must understand before you use the second one.</p>
+<p class="mt-3 text-slate-700"><strong>PDF ka size kaise kam kare?</strong> Pehle preserve mode try karo — woh PDF ki structure bachata hai. Agar woh 100 KB tak nahi la paya, tabhi rasterize mode ke baare me socho, kyunki usme text aur links khatam ho sakte hain.</p>
+<h2 class="text-2xl font-bold mt-8">Step 1 — Try preserve mode first</h2>
+<p class="mt-2 text-slate-700">Open the <a class="underline" href="/tools/pdf-under-100kb/">Compress PDF Under 100 KB tool</a>, choose your PDF, and try preserve mode. It re-saves the PDF without changing its pages, text or structure. For a text-based PDF, this often works. If the output is at or under 100 KB and it reopens correctly, you are done — download it and check every page.</p>
+<h2 class="text-2xl font-bold mt-8">Step 2 — Only then consider rasterize mode</h2>
+<p class="mt-2 text-slate-700">Rasterize mode turns each page into an image and rebuilds the PDF. That can shrink a scanned PDF a lot, but it has real costs: selectable text, links, forms, digital signatures and accessibility can be lost, and small text can become hard to read. Read the warning in the tool, agree only if you understand it, and then check every page of the output before submitting.</p>
+<h2 class="text-2xl font-bold mt-8">If it still will not fit</h2>
+<p class="mt-2 text-slate-700">A multi-page scanned PDF may simply contain more image data than 100 KB can hold at readable quality. Do not submit an unreadable PDF just because the size is right. Options, in order: check whether your form accepts 200 KB and use the <a class="underline" href="/tools/pdf-under-200kb/">200 KB tool</a>, reduce the number of pages if the form allows it, or re-scan at a lower resolution with a plain background.</p>
+<h2 class="text-2xl font-bold mt-8">Common mistakes</h2>
+<ul class="list-disc ml-6 mt-3 space-y-2 text-slate-700">
+<li>Using rasterize mode first, without trying preserve mode.</li>
+<li>Not checking the output pages after compression.</li>
+<li>Assuming a smaller PDF is automatically accepted — page count, clarity and the form's own rules still matter.</li>
+</ul>
+<p class="mt-6"><a class="btn" href="/tools/pdf-under-100kb/">Compress a PDF under 100 KB →</a></p>
+<p class="mt-4 text-sm text-slate-500">Password-protected or malformed PDFs are rejected by the tool with an explanation. Compression does not guarantee acceptance.</p>
+</Base>

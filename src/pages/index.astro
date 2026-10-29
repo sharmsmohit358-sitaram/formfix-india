@@ -10,7 +10,14 @@ const tools = [
   { href: '/tools/pdf-under-200kb/', icon: '📑', badge: '200 KB', t: 'Compress PDF Under 200 KB', d: 'Same honest PDF approach, for a 200 KB limit.' },
 ];
 ---
-<Base title="FormFix India — Fix Images, Signatures & PDFs for Online Forms" description="Resize images to 20, 50 or 100 KB, prepare signatures to 10–20 KB, compress PDFs under 100 or 200 KB, and check files against application rules — all in your browser, with no uploads.">
+<Base title="Resize Photo to 20 KB Online Free | Image, Signature & PDF Tools — FormFix India" description="Resize photo to 20 KB, 50 KB or 100 KB online free, signature to 10–20 KB, and compress PDF under 100 or 200 KB — in your browser, no upload, no sign-up." extraJsonLd={[
+  { "@type": "WebApplication", "name": "FormFix India", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" } },
+  { "@type": "FAQPage", "mainEntity": [
+    { "@type": "Question", "name": "Are my documents uploaded?", "acceptedAnswer": { "@type": "Answer", "text": "No. Processing uses Canvas and PDF libraries loaded in your browser. There is no upload endpoint in this site." } },
+    { "@type": "Question", "name": "Does resizing guarantee acceptance?", "acceptedAnswer": { "@type": "Answer", "text": "No. It only fixes size, format and dimensions you can check locally. The application authority decides acceptance." } },
+    { "@type": "Question", "name": "What does 20 KB mean here?", "acceptedAnswer": { "@type": "Answer", "text": "20 KiB = 20,480 bytes. Outputs are measured by actual bytes, not by an estimate." } }
+  ] }
+]}>
   <section class="hero rounded-2xl md:rounded-3xl p-3 md:p-10 text-white">
     <p class="inline-block rounded-full bg-white/20 px-2.5 py-1 text-[11px] md:text-sm font-bold">Free &nbsp;•&nbsp; No sign-up &nbsp;•&nbsp; No upload</p>
     <h1 class="text-[27px] leading-[1.15] md:text-6xl md:leading-tight font-extrabold mt-2 md:mt-4 max-w-3xl">Fix your form photo in a minute.</h1>
@@ -45,7 +52,9 @@ const tools = [
     ))}</div>
   </section>
 
-  <AdSlot client:visible label="Homepage advertisement" />
+  <AdSlot label="Homepage advertisement" />
+
+  <section class="mt-10 card p-6"><h2 class="text-2xl font-bold">Not sure where to start? Read a guide</h2><p class="mt-2 text-slate-700">Step-by-step, in plain language — including in Hindi where it helps.</p><p class="mt-4 flex flex-wrap gap-3"><a class="btn btn-secondary" href="/guides/photo-20kb/">Photo to 20 KB guide</a><a class="btn btn-secondary" href="/guides/signature-10-20kb/">Signature guide</a><a class="btn btn-secondary" href="/guides/pdf-under-100kb/">PDF guide</a></p></section>
 
   <section class="mt-10" aria-labelledby="how-h">
     <h2 id="how-h" class="text-2xl md:text-3xl font-bold">How it works — 3 steps, usually in seconds</h2>

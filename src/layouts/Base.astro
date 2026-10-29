@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
-interface Props { title: string; description: string; canonical?: string; }
-const { title, description, canonical } = Astro.props;
+interface Props { title: string; description: string; canonical?: string; extraJsonLd?: Record<string, unknown>[]; }
+const { title, description, canonical, extraJsonLd = [] } = Astro.props;
 const site = Astro.site?.toString().replace(/\/$/, '') || '';
 const canon = canonical || (site ? site + Astro.url.pathname : Astro.url.pathname);
 const jsonLd = {
@@ -9,7 +9,8 @@ const jsonLd = {
   "@graph": [
     { "@type": "Organization", "name": "FormFix India", "url": site || undefined, "description": "Free browser-local tools to resize images, signatures and PDFs for online applications in India." },
     { "@type": "WebSite", "name": "FormFix India", "url": site || undefined },
-    { "@type": "WebPage", "name": title, "description": description, "url": canon }
+    { "@type": "WebPage", "name": title, "description": description, "url": canon },
+    ...extraJsonLd
   ]
 };
 ---
@@ -49,7 +50,7 @@ const jsonLd = {
   <div class="max-w-5xl mx-auto px-4 py-5 md:py-8 text-sm text-slate-600 grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-6">
     <div class="col-span-2 md:col-span-1"><p class="font-bold text-slate-900">FormFix India</p><p>Fix Your Files. Submit With Confidence.</p><p class="mt-1 text-xs md:text-sm">Independent tool. Not affiliated with SSC, UPSC or any government department.</p></div>
     <div><p class="font-bold text-slate-900">Tools</p><ul class="space-y-1 mt-1"><li><a class="underline" href="/tools/image-to-20kb/">Image to 20 KB</a></li><li><a class="underline" href="/tools/image-to-50kb/">Image to 50 KB</a></li><li><a class="underline" href="/tools/image-to-100kb/">Image to 100 KB</a></li><li><a class="underline" href="/tools/signature-10-to-20kb/">Signature 10–20 KB</a></li><li><a class="underline" href="/tools/pdf-under-100kb/">PDF under 100 KB</a></li><li><a class="underline" href="/tools/pdf-under-200kb/">PDF under 200 KB</a></li></ul></div>
-    <div><p class="font-bold text-slate-900">Information</p><ul class="space-y-1 mt-1"><li><a class="underline" href="/application-checker/">Application checker</a></li><li><a class="underline" href="/about/">About</a></li><li><a class="underline" href="/privacy/">Privacy Policy</a></li><li><a class="underline" href="/terms/">Terms of Use</a></li><li><a class="underline" href="/contact/">Contact</a></li></ul></div>
+    <div><p class="font-bold text-slate-900">Information</p><ul class="space-y-1 mt-1"><li><a class="underline" href="/application-checker/">Application checker</a></li><li><a class="underline" href="/guides/">Guides</a></li><li><a class="underline" href="/about/">About</a></li><li><a class="underline" href="/privacy/">Privacy Policy</a></li><li><a class="underline" href="/terms/">Terms of Use</a></li><li><a class="underline" href="/contact/">Contact</a></li></ul></div>
   </div>
   <p class="text-center text-xs text-slate-500 pb-5 md:pb-6 px-4">All processing happens in your browser. No file is uploaded by this site.</p>
 </footer>
