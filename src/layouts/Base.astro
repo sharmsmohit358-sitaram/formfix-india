@@ -34,25 +34,25 @@ const jsonLd = {
 </head>
 <body>
 <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:p-3 focus:bg-white">Skip to main content</a>
-<header class="sticky top-0 bg-white/95 backdrop-blur border-b z-10">
+<header class="sticky top-0 bg-white/95 backdrop-blur border-b border-violet-100 shadow-sm z-10">
   <nav class="max-w-5xl mx-auto px-3 md:px-4 py-2.5 md:py-3 flex items-center justify-between gap-2" aria-label="Main navigation">
-    <a href="/" class="font-extrabold text-base md:text-lg whitespace-nowrap">FormFix <span class="text-fuchsia-600">India</span></a>
+    <a href="/" class="font-extrabold text-base md:text-lg whitespace-nowrap tracking-tight">FormFix <span class="bg-gradient-to-r from-violet-600 to-pink-500 bg-clip-text text-transparent">India ✨</span></a>
     <div class="flex items-center justify-end gap-2.5 md:gap-4 text-[13px] md:text-sm font-medium">
-      <a href="/tools/image-to-20kb/">Tools</a>
-      <a href="/application-checker/">Checker</a>
-      <a href="/about/" class="hidden sm:inline">About</a>
-      <a href="/privacy/" class="hidden sm:inline">Privacy</a>
+      <a href="/tools/image-to-20kb/" class="px-2.5 py-1 rounded-full hover:bg-violet-100 hover:text-violet-700">Tools</a>
+      <a href="/application-checker/" class="px-2.5 py-1 rounded-full hover:bg-violet-100 hover:text-violet-700">Checker</a>
+      <a href="/about/" class="hidden sm:inline px-2.5 py-1 rounded-full hover:bg-violet-100 hover:text-violet-700">About</a>
+      <a href="/privacy/" class="hidden sm:inline px-2.5 py-1 rounded-full hover:bg-violet-100 hover:text-violet-700">Privacy</a>
     </div>
   </nav>
 </header>
 <main id="main" class="max-w-5xl mx-auto px-4 py-6"><slot /></main>
-<footer class="border-t bg-white mt-8 md:mt-10">
-  <div class="max-w-5xl mx-auto px-4 py-5 md:py-8 text-sm text-slate-600 grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-6">
-    <div class="col-span-2 md:col-span-1"><p class="font-bold text-slate-900">FormFix India</p><p>Fix Your Files. Submit With Confidence.</p><p class="mt-1 text-xs md:text-sm">Independent tool. Not affiliated with SSC, UPSC or any government department.</p></div>
-    <div><p class="font-bold text-slate-900">Tools</p><ul class="space-y-1 mt-1"><li><a class="underline" href="/tools/image-to-20kb/">Image to 20 KB</a></li><li><a class="underline" href="/tools/image-to-50kb/">Image to 50 KB</a></li><li><a class="underline" href="/tools/image-to-100kb/">Image to 100 KB</a></li><li><a class="underline" href="/tools/signature-10-to-20kb/">Signature 10–20 KB</a></li><li><a class="underline" href="/tools/pdf-under-100kb/">PDF under 100 KB</a></li><li><a class="underline" href="/tools/pdf-under-200kb/">PDF under 200 KB</a></li></ul></div>
-    <div><p class="font-bold text-slate-900">Information</p><ul class="space-y-1 mt-1"><li><a class="underline" href="/application-checker/">Application checker</a></li><li><a class="underline" href="/guides/">Guides</a></li><li><a class="underline" href="/about/">About</a></li><li><a class="underline" href="/privacy/">Privacy Policy</a></li><li><a class="underline" href="/terms/">Terms of Use</a></li><li><a class="underline" href="/contact/">Contact</a></li></ul></div>
+<footer class="mt-8 md:mt-10 text-white"><div class="h-1.5 bg-gradient-to-r from-violet-500 via-pink-500 to-orange-400"></div><div class="bg-gradient-to-br from-violet-950 via-purple-900 to-pink-900">
+  <div class="max-w-5xl mx-auto px-4 py-5 md:py-8 text-sm text-violet-200 grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-6">
+    <div class="col-span-2 md:col-span-1"><p class="font-bold text-white text-base">FormFix <span class="bg-gradient-to-r from-violet-300 to-pink-300 bg-clip-text text-transparent">India ✨</span></p><p class="mt-1">Fix Your Files. Submit With Confidence.</p><p class="mt-1 text-xs md:text-sm text-violet-300">Made for form-fillers in India 🇮🇳 • No upload • No sign-up</p><p class="mt-1 text-xs md:text-sm text-violet-300">Independent tool. Not affiliated with SSC, UPSC or any government department.</p></div>
+    <div><p class="font-bold text-white">Tools</p><ul class="space-y-1 mt-1"><li><a class="no-underline hover:text-white" href="/tools/image-to-20kb/">Image to 20 KB</a></li><li><a class="no-underline hover:text-white" href="/tools/image-to-50kb/">Image to 50 KB</a></li><li><a class="no-underline hover:text-white" href="/tools/image-to-100kb/">Image to 100 KB</a></li><li><a class="no-underline hover:text-white" href="/tools/signature-10-to-20kb/">Signature 10–20 KB</a></li><li><a class="no-underline hover:text-white" href="/tools/pdf-under-100kb/">PDF under 100 KB</a></li><li><a class="no-underline hover:text-white" href="/tools/pdf-under-200kb/">PDF under 200 KB</a></li></ul></div>
+    <div><p class="font-bold text-white">Information</p><ul class="space-y-1 mt-1"><li><a class="no-underline hover:text-white" href="/application-checker/">Application checker</a></li><li><a class="no-underline hover:text-white" href="/guides/">Guides</a></li><li><a class="no-underline hover:text-white" href="/about/">About</a></li><li><a class="no-underline hover:text-white" href="/privacy/">Privacy Policy</a></li><li><a class="no-underline hover:text-white" href="/terms/">Terms of Use</a></li><li><a class="no-underline hover:text-white" href="/contact/">Contact</a></li></ul></div>
   </div>
-  <p class="text-center text-xs text-slate-500 pb-5 md:pb-6 px-4">All processing happens in your browser. No file is uploaded by this site.</p>
+  <p class="text-center text-xs text-violet-300 pb-5 md:pb-6 px-4">All processing happens in your browser. No file is uploaded by this site. 🔒</p></div>
 </footer>
 </body>
 </html>
