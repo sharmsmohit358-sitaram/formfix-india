@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import AdSlot from '../components/ads/AdSlot.tsx';
+const tools = [
+  { href: '/tools/image-to-20kb/', t: 'Resize Image to 20 KB', d: 'Shrink a photo or scan to 20 KB or less, as JPEG, in your browser.' },
+  { href: '/tools/image-to-50kb/', t: 'Resize Image to 50 KB', d: 'The same engine, tuned for a 50 KB limit.' },
+  { href: '/tools/image-to-100kb/', t: 'Resize Image to 100 KB', d: 'More headroom for clearer photos at 100 KB or less.' },
+  { href: '/tools/signature-10-to-20kb/', t: 'Signature Resize to 10–20 KB', d: 'Crop, whiten and resize a signature into the 10–20 KB range.' },
+  { href: '/tools/pdf-under-100kb/', t: 'Compress PDF Under 100 KB', d: 'Preserve mode first, rasterize mode only with your agreement.' },
+  { href: '/tools/pdf-under-200kb/', t: 'Compress PDF Under 200 KB', d: 'Same honest PDF approach, for a 200 KB limit.' },
+];
+---
+<Base title="FormFix India — Fix Images, Signatures & PDFs for Online Forms" description="Resize images to 20, 50 or 100 KB, prepare signatures to 10–20 KB, compress PDFs under 100 or 200 KB, and check files against application rules — all in your browser, with no uploads.">
+  <section class="py-8">
+    <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">Fix Images, Signatures &amp; PDFs for Online Forms</h1>
+    <p class="text-lg text-slate-600 mt-4 max-w-2xl">Resize files to the required size, check their format and prepare documents directly in your browser.</p>
+    <div class="flex flex-wrap gap-3 mt-6"><a class="btn" href="/tools/image-to-20kb/">Choose a Free Tool</a><a class="btn btn-secondary" href="/application-checker/">Check Application Requirements</a></div>
+    <p class="text-sm text-slate-500 mt-3">No registration. No payment. Your files never leave your device.</p>
+  </section>
+  <section aria-labelledby="tools-h"><h2 id="tools-h" class="text-2xl font-bold">Six free tools</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">{tools.map((t) => <article class="card p-5"><h3 class="font-bold"><a class="underline" href={t.href}>{t.t}</a></h3><p class="text-sm text-slate-600 mt-2">{t.d}</p><a class="btn btn-secondary mt-4" href={t.href}>Open tool</a></article>)}</div>
+  </section>
+  <AdSlot client:visible label="Homepage advertisement" />
+  <section class="mt-10 grid md:grid-cols-3 gap-4">
+    <div class="card p-5"><h2 class="font-bold">1. Choose a tool</h2><p class="text-sm text-slate-600 mt-1">Pick the size your form actually asks for.</p></div>
+    <div class="card p-5"><h2 class="font-bold">2. Process in your browser</h2><p class="text-sm text-slate-600 mt-1">Preview the result and check its real byte size.</p></div>
+    <div class="card p-5"><h2 class="font-bold">3. Download and re-check</h2><p class="text-sm text-slate-600 mt-1">Download locally, then re-check it in the application checker.</p></div>
+  </section>
+  <section class="mt-10 card p-6"><h2 class="text-2xl font-bold">Why your file may be rejected</h2><p class="mt-2 text-slate-700">File size and image dimensions are different things. A 20 KB image can still be the wrong shape, and a correctly sized file can still be blurry. Changing a filename from .png to .jpg does not convert the file. And a resized file is not a guarantee that a form will accept it — clarity, format and the form's own rules still matter.</p>
+  <h3 class="font-bold mt-4">Common problems, in plain language</h3><ul class="list-disc ml-6 mt-2 text-slate-700"><li>How to check the actual file size on Android: Files app → file details, or the tool preview on this site.</li><li>Why compression reduces clarity: JPEG removes detail to save bytes. At very small targets, text and signatures get soft.</li><li>Why PDF compression may fail: a scanned, multi-page PDF may simply contain more image data than 100 KB can hold at readable quality.</li></ul>
+  <p class="mt-3 text-sm">Hindi help: यह साइट आपकी फ़ाइल को सर्वर पर नहीं भेजती। फ़ाइल आपके ही ब्राउज़र में तैयार होती है।</p></section>
+  <section class="mt-10"><h2 class="text-2xl font-bold">Frequently asked questions</h2>
+    <div class="space-y-4 mt-4">
+      <div class="card p-5"><h3 class="font-bold">Are my documents uploaded?</h3><p class="text-sm text-slate-700 mt-1">No. Processing uses Canvas and PDF libraries loaded in your browser. There is no upload endpoint in this site.</p></div>
+      <div class="card p-5"><h3 class="font-bold">Does resizing guarantee acceptance?</h3><p class="text-sm text-slate-700 mt-1">No. It only fixes size, format and dimensions you can check locally. The application authority decides acceptance.</p></div>
+      <div class="card p-5"><h3 class="font-bold">What does 20 KB mean here?</h3><p class="text-sm text-slate-700 mt-1">20 KiB = 20,480 bytes. Outputs are measured by actual bytes, not by an estimate.</p></div>
+    </div>
+  </section>
+</Base>

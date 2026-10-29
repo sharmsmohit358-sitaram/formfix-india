@@ -1,0 +1,57 @@
+---
+import '../styles/global.css';
+interface Props { title: string; description: string; canonical?: string; }
+const { title, description, canonical } = Astro.props;
+const site = Astro.site?.toString().replace(/\/$/, '') || '';
+const canon = canonical || (site ? site + Astro.url.pathname : Astro.url.pathname);
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "name": "FormFix India", "url": site || undefined, "description": "Free browser-local tools to resize images, signatures and PDFs for online applications in India." },
+    { "@type": "WebSite", "name": "FormFix India", "url": site || undefined },
+    { "@type": "WebPage", "name": title, "description": description, "url": canon }
+  ]
+};
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canon} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canon} />
+<meta property="og:image" content={(site ? site : '') + "/assets/og.svg"} />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+{import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION && <meta name="google-site-verification" content={import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION} />}
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+</head>
+<body>
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:p-3 focus:bg-white">Skip to main content</a>
+<header class="sticky top-0 bg-white/95 backdrop-blur border-b z-10">
+  <nav class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-4" aria-label="Main navigation">
+    <a href="/" class="font-extrabold text-lg">FormFix <span class="text-teal-700">India</span></a>
+    <div class="flex gap-4 text-sm font-medium overflow-x-auto">
+      <a href="/tools/image-to-20kb/">Tools</a>
+      <a href="/application-checker/">Checker</a>
+      <a href="/about/">About</a>
+      <a href="/privacy/">Privacy</a>
+    </div>
+  </nav>
+</header>
+<main id="main" class="max-w-5xl mx-auto px-4 py-6"><slot /></main>
+<footer class="border-t bg-white mt-10">
+  <div class="max-w-5xl mx-auto px-4 py-8 text-sm text-slate-600 grid md:grid-cols-3 gap-6">
+    <div><p class="font-bold text-slate-900">FormFix India</p><p>Fix Your Files. Submit With Confidence.</p><p class="mt-2">Independent document-preparation tool. Not affiliated with SSC, UPSC or any government department.</p></div>
+    <div><p class="font-bold text-slate-900">Tools</p><ul class="space-y-1"><li><a class="underline" href="/tools/image-to-20kb/">Image to 20 KB</a></li><li><a class="underline" href="/tools/image-to-50kb/">Image to 50 KB</a></li><li><a class="underline" href="/tools/image-to-100kb/">Image to 100 KB</a></li><li><a class="underline" href="/tools/signature-10-to-20kb/">Signature 10–20 KB</a></li><li><a class="underline" href="/tools/pdf-under-100kb/">PDF under 100 KB</a></li><li><a class="underline" href="/tools/pdf-under-200kb/">PDF under 200 KB</a></li></ul></div>
+    <div><p class="font-bold text-slate-900">Information</p><ul class="space-y-1"><li><a class="underline" href="/application-checker/">Application checker</a></li><li><a class="underline" href="/about/">About</a></li><li><a class="underline" href="/privacy/">Privacy Policy</a></li><li><a class="underline" href="/terms/">Terms of Use</a></li><li><a class="underline" href="/contact/">Contact</a></li></ul></div>
+  </div>
+  <p class="text-center text-xs text-slate-500 pb-6">All processing happens in your browser. No file is uploaded by this site.</p>
+</footer>
+</body>
+</html>

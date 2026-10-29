@@ -1,0 +1,3 @@
+# AdSense checklist
+Done: ad component exists but is disabled by default (PUBLIC_ADS_ENABLED=false, no client ID, no script loaded, no fake ad). Reserved space is labelled as disabled so layout does not shift later. Ads are never inside tool controls or adjacent to a download button in a misleading way, and no download is gated on ads.
+Not done / owner actions: AdSense approval is NOT guaranteed and NOT claimed. Owner must apply with real publisher info, add the real client ID, add ads.txt only after approval with the real publisher record, update Privacy Policy with actual providers/cookies/consent, and review Google policies. Do not invent a publisher ID.

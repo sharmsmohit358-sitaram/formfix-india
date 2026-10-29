@@ -1,0 +1,11 @@
+---
+import Base from '../../layouts/Base.astro';
+import Checker from '../../components/application-checker/Checker.tsx';
+---
+<Base title="Application Document Requirement Checker | FormFix India" description="Check a file against officially verified application requirements, locally in your browser. Archived SSC CHT 2026 profiles included with their conflicts and limits shown.">
+<nav aria-label="Breadcrumb"><ol class="flex gap-2 text-sm text-slate-500"><li><a class="underline" href="/">Home</a></li><li aria-hidden="true">/</li><li aria-current="page">Application Checker</li></ol></nav>
+<h1 class="text-3xl font-extrabold mt-4">Application Document Requirement Checker</h1>
+<p class="text-slate-600 mt-2 max-w-2xl">Select a requirement, upload a file, and see PASS, FAIL, WARNING or UNKNOWN for each locally testable check, with the reasoning shown. A passing local check is not a guarantee of acceptance.</p>
+<div class="mt-6"><Checker client:load /></div>
+<section class="mt-10"><h2 class="text-2xl font-bold">How results work</h2><p class="mt-2 text-slate-700">PASS means every locally testable check with a verified value passed. FAIL means a verified rule failed. WARNING means technical checks passed but manual checks remain. UNKNOWN means official rules are missing, archived, conflicting or cannot be verified from a file alone — for example, a live-camera photograph.</p></section>
+</Base>
