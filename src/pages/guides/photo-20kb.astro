@@ -3,10 +3,10 @@ import Base from '../../layouts/Base.astro';
 ---
 <Base title="How to Resize Photo to 20 KB for Online Form | Photo 20 KB Kaise Kare — FormFix India" description="How to resize a photo to 20 KB for an online form, step by step on your phone: choose the 20 KB tool, preview, check actual bytes, and what to do if the photo becomes blurry.">
 <nav aria-label="Breadcrumb"><ol class="flex gap-2 text-sm text-slate-500"><li><a class="underline" href="/">Home</a></li><li aria-hidden="true">/</li><li><a class="underline" href="/guides/">Guides</a></li><li aria-hidden="true">/</li><li aria-current="page">Photo to 20 KB</li></ol></nav>
-<h1 class="text-3xl font-extrabold mt-4">How to resize a photo to 20 KB for an online form</h1>
+<h1 class="text-3xl md:text-4xl font-extrabold tracking-tight mt-4">How to resize a photo to 20 KB for an online form</h1>
 <p class="text-slate-600 mt-2 max-w-2xl">If your form says “photo maximum 20 KB”, it usually means 20,480 bytes or less — not just a file whose name ends in .jpg. Here is the exact way to do it on your phone, without uploading your photo anywhere.</p>
-<p class="mt-3 text-slate-700"><strong>Photo 20 KB kaise kare?</strong> Photo ko 20 KB tool me daalo, preview dekho, aur download karne se pehle actual size check karo. Agar size 20,480 bytes se zyada hai, to tool ko dobara chalane ki zaroorat nahi — woh khud hi sahi size tak le jaata hai, ya saaf bata deta hai ki nahi ho paya.</p>
-<h2 class="text-2xl font-bold mt-8">Steps</h2>
+<div class="mt-4 rounded-2xl bg-violet-50 border border-violet-200 p-4"><p class="text-slate-700 leading-relaxed"><strong>Photo 20 KB kaise kare?</strong> Photo ko 20 KB tool me daalo, preview dekho, aur download karne se pehle actual size check karo. Agar size 20,480 bytes se zyada hai, to tool ko dobara chalane ki zaroorat nahi — woh khud hi sahi size tak le jaata hai, ya saaf bata deta hai ki nahi ho paya.</p></div>
+<section class="card p-5 md:p-6 mt-8"><h2 class="text-xl md:text-2xl font-bold">Steps</h2>
 <ol class="list-decimal ml-6 mt-3 space-y-2 text-slate-700">
 <li>First, read your form's own notice. Confirm it really asks for 20 KB, and check its format (usually JPEG) and any dimension rule. This site does not guess a form's rules for you.</li>
 <li>Open the <a class="underline" href="/tools/image-to-20kb/">Resize Image to 20 KB tool</a> and choose your photo. A clear, well-lit photo works far better than a dark or shaky one.</li>
@@ -14,14 +14,17 @@ import Base from '../../layouts/Base.astro';
 <li>Check the output size shown by the tool. It is measured by actual bytes. On Android you can also check later in Files → file details.</li>
 <li>Download the JPEG, then re-check it in the <a class="underline" href="/application-checker/">application checker</a> before you submit.</li>
 </ol>
-<h2 class="text-2xl font-bold mt-8">If the photo becomes blurry</h2>
+</section>
+<section class="card p-5 md:p-6 mt-8"><h2 class="text-xl md:text-2xl font-bold">If the photo becomes blurry</h2>
 <p class="mt-2 text-slate-700">20 KB is a very small target. A detailed photo has to lose detail to fit. Try these, in order: crop out empty background before resizing, use a simpler photo with a plain background, and take the photo again in good light at a smaller distance. If it still looks unreadable, check whether your form accepts 50 KB instead — do not submit a blurry file just because the size is right.</p>
-<h2 class="text-2xl font-bold mt-8">Common mistakes</h2>
+</section>
+<section class="card p-5 md:p-6 mt-8"><h2 class="text-xl md:text-2xl font-bold">Common mistakes</h2>
 <ul class="list-disc ml-6 mt-3 space-y-2 text-slate-700">
 <li>Renaming a .png file to .jpg does not convert it. The tool actually converts to JPEG.</li>
 <li>A screenshot of a photo is usually worse than the original photo — use the original file.</li>
 <li>Size and shape are different. A 20 KB photo can still be the wrong shape for the form.</li>
 </ul>
-<p class="mt-6"><a class="btn" href="/tools/image-to-20kb/">Resize a photo to 20 KB →</a></p>
+</section>
+<p class="mt-6"><a class="btn w-full sm:w-auto" href="/tools/image-to-20kb/">Resize a photo to 20 KB →</a></p>
 <p class="mt-4 text-sm text-slate-500">Resizing does not guarantee that a form will accept your file. The application authority decides acceptance, based on its own format, dimension and clarity rules.</p>
 </Base>
