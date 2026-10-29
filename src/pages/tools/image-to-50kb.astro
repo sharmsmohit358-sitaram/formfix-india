@@ -9,5 +9,4 @@ import StepStrip from '../../components/StepStrip.astro';
 <p class="text-slate-600 mt-2 max-w-2xl">For forms that allow up to 50 KB. More headroom than 20 KB, so photos usually stay clearer.</p>
 <StepStrip steps={["Choose your file", "Check the real size", "Download"]} />
 <div class="mt-6"><ImageTool client:idle targetKiB={50} title="Resize Image to 50 KB" /></div>
-<section class="mt-10 card p-5 md:p-6"><h2 class="text-xl md:text-2xl font-bold">Instructions and limits</h2><p class="mt-2 text-slate-700 leading-relaxed">Start with the clearest original you have. Check the preview closely: size alone does not make a blurry photo acceptable. If the result is too soft, use a better scan or a larger target if your form allows it.</p><p class="mt-2">Related: <a class="underline" href="/tools/image-to-20kb/">Image to 20 KB</a> · <a class="underline" href="/tools/signature-10-to-20kb/">Signature 10–20 KB</a> · <a class="underline" href="/application-checker/">Application checker</a></p></section>
 </Base>

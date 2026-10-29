@@ -9,5 +9,4 @@ import StepStrip from '../../components/StepStrip.astro';
 <p class="text-slate-600 mt-2 max-w-2xl">Select a requirement, upload a file, and see PASS, FAIL, WARNING or UNKNOWN for each locally testable check, with the reasoning shown. A passing local check is not a guarantee of acceptance.</p>
 <StepStrip steps={["Select a requirement", "Upload your file", "Read PASS / FAIL / WARNING"]} />
 <div class="mt-6"><Checker client:idle /></div>
-<section class="mt-10 card p-5 md:p-6"><h2 class="text-xl md:text-2xl font-bold">How results work</h2><ul class="mt-3 space-y-2 text-slate-700 leading-relaxed"><li><strong>✅ PASS</strong> — every locally testable check with a verified value passed.</li><li><strong>❌ FAIL</strong> — a verified rule failed.</li><li><strong>⚠️ WARNING</strong> — technical checks passed but manual checks remain.</li><li><strong>❓ UNKNOWN</strong> — official rules are missing, archived, conflicting or cannot be verified from a file alone — for example, a live-camera photograph.</li></ul></section>
 </Base>
