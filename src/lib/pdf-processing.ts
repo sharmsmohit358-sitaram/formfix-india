@@ -1,10 +1,8 @@
 import { PDFDocument } from 'pdf-lib';
 
+export { parsePdfHeaderInfo } from './pdf-header';
+
 export interface PdfInfo { pageCount: number; bytes: number; title?: string; hasForms: boolean; maybeSigned: boolean; encrypted: boolean; }
-export function parsePdfHeaderInfo(bytes: Uint8Array): { maybeSigned: boolean; hasForms: boolean; encrypted: boolean } {
-  const head = new TextDecoder('latin1').decode(bytes.slice(0, Math.min(bytes.length, 200000)));
-  return { maybeSigned: /\/Sig\b|ByteRange/.test(head), hasForms: /\/AcroForm\b/.test(head), encrypted: /\/Encrypt\b/.test(head) };
-}
 /** Mode A: re-save with pdf-lib (metadata cleared). Returns measured bytes. Never claims this always compresses. */
 export async function preservePdf(input: Uint8Array): Promise<{ bytes: Uint8Array; pageCount: number; info: PdfInfo }> {
   let doc: PDFDocument;

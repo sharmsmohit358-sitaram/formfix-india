@@ -1,7 +1,10 @@
 import React, { useRef, useState } from 'react';
 import { formatBytes, kib } from '../../lib/format';
 import { validatePdfFile } from '../../lib/file-validation';
-import { preservePdf, rasterizePdf, validatePdfBytes, parsePdfHeaderInfo } from '../../lib/pdf-processing';
+// Tiny header parser only — pdf-processing (pdf-lib) is NOT imported here,
+// so it is not in the PDF page's initial bundle. It is loaded dynamically
+// in runPreserve/runRaster, only after the user clicks a mode button.
+import { parsePdfHeaderInfo } from '../../lib/pdf-header';
 
 export default function PdfTool({ targetKiB }: { targetKiB: number }) {
   const [file, setFile] = useState<File | null>(null);
@@ -22,6 +25,7 @@ export default function PdfTool({ targetKiB }: { targetKiB: number }) {
   async function runPreserve() {
     if (!file) return; setBusy(true); setError('');
     try {
+      const { preservePdf, validatePdfBytes } = await import('../../lib/pdf-processing');
       const full = new Uint8Array(await file.arrayBuffer());
       const r = await preservePdf(full);
       if (r.bytes.length <= kib(targetKiB)) {
@@ -34,6 +38,7 @@ export default function PdfTool({ targetKiB }: { targetKiB: number }) {
     if (!file || !consent) return; setBusy(true); setError('');
     const ac = new AbortController(); abortRef.current = ac;
     try {
+      const { rasterizePdf } = await import('../../lib/pdf-processing');
       const full = new Uint8Array(await file.arrayBuffer());
       const r = await rasterizePdf(full, { targetBytes: kib(targetKiB), onProgress: (p) => setProgress(p), signal: ac.signal });
       const blob = new Blob([r.bytes as any], { type: 'application/pdf' }); setResult({ url: URL.createObjectURL(blob), bytes: r.bytes.length, pages: r.pageCount, mode: 'Rasterized (text may no longer be selectable)' });
