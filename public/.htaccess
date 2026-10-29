@@ -1,0 +1,21 @@
+# FormFix India — Hostinger / Apache hosting only.
+# Every rule is guarded with <IfModule> so a missing module cannot cause a 500 error.
+# Hashed files under _astro/ change name on every rebuild, so a long cache is safe
+# for them. HTML pages are NOT long-cached, so a new deploy shows up immediately.
+# No camera/microphone permission header is set here on purpose: mobile file
+# pickers may offer the camera, and blocking it would break that choice.
+
+Options -Indexes
+ErrorDocument 404 /404.html
+
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  <FilesMatch "\.(js|css|mjs)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(html)$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+</IfModule>

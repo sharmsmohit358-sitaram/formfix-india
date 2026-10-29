@@ -1,13 +1,14 @@
 import React, { useRef, useState } from 'react';
 import { formatBytes, kib } from '../../lib/format';
 import { detectKind, validateImageFile, MAX_IMAGE_BYTES } from '../../lib/file-validation';
-import { processImage, readabilityWarning } from '../../lib/image-processing';
+import { readabilityWarning } from '../../lib/image-processing';
+import { processImageSmart } from '../../lib/image-worker-client';
 
 export default function ImageTool({ targetKiB, minKiB, title }: { targetKiB: number; minKiB?: number; title: string }) {
   const [file, setFile] = useState<File | null>(null);
   const [orig, setOrig] = useState<{ w: number; h: number; url: string } | null>(null);
   const [error, setError] = useState(''); const [busy, setBusy] = useState(false); const [progress, setProgress] = useState(0);
-  const [result, setResult] = useState<Awaited<ReturnType<typeof processImage>> | null>(null);
+  const [result, setResult] = useState<Awaited<ReturnType<typeof processImageSmart>> | null>(null);
   const abortRef = useRef<AbortController | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   async function onFile(f: File | undefined) {
@@ -23,7 +24,7 @@ export default function ImageTool({ targetKiB, minKiB, title }: { targetKiB: num
     if (!file) return; setBusy(true); setError(''); setProgress(0);
     const ac = new AbortController(); abortRef.current = ac;
     try {
-      const r = await processImage(file, { targetBytes: kib(targetKiB), minBytes: minKiB ? kib(minKiB) : undefined, onProgress: (p) => setProgress(p), signal: ac.signal });
+      const r = await processImageSmart(file, { targetBytes: kib(targetKiB), minBytes: minKiB ? kib(minKiB) : undefined, onProgress: (p) => setProgress(p), signal: ac.signal });
       setResult(r); if (!r.success) setError(r.note);
     } catch (e) { setError((e as Error).message || 'Processing failed.'); } finally { setBusy(false); }
   }

@@ -1,11 +1,13 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PdfTool from '../../components/tools/PdfTool.tsx';
+import StepStrip from '../../components/StepStrip.astro';
 ---
 <Base title="Compress PDF to 200 KB Online Free | PDF Size Reducer Under 200 KB — FormFix India" description="Compress PDF to under 200 KB online free, in your browser. Preserve mode first; rasterize mode only with your agreement. Every successful output is a valid PDF at or below the target, verified by reopening it.">
 <nav aria-label="Breadcrumb"><ol class="flex gap-2 text-sm text-slate-500"><li><a class="underline" href="/">Home</a></li><li aria-hidden="true">/</li><li aria-current="page">Compress PDF Under 200 KB</li></ol></nav>
 <h1 class="text-3xl font-extrabold mt-4">Compress PDF Under 200 KB</h1>
 <p class="text-slate-600 mt-2 max-w-2xl">PDF compression is not guaranteed. Preserve mode keeps text and structure and often saves only a little. Rasterize mode can save more, but pages become images and selectable text, links, forms and signatures may be lost. Multi-page or scanned documents may not fit under 200 KB at readable quality — the tool will say so instead of silently damaging your document.</p>
+<StepStrip steps={["Choose your file", "Check the real size", "Download"]} />
 <div class="mt-6"><PdfTool client:idle targetKiB={200} /></div>
 <section class="mt-10"><h2 class="text-2xl font-bold">Instructions and limits</h2><p class="mt-2 text-slate-700">Do not rasterize a signed or legally significant document without checking with the issuing authority. Password-protected PDFs are rejected here; remove the password in your own PDF reader first. If neither mode reaches 200 KB, split the PDF, use a lower-resolution scan, or check whether your form accepts a larger size.</p><p class="mt-2">Related: <a class="underline" href="/tools/pdf-under-100kb/">PDF under 100 KB</a> · <a class="underline" href="/tools/pdf-under-200kb/">PDF under 200 KB</a> · <a class="underline" href="/application-checker/">Application checker</a></p></section>
 </Base>

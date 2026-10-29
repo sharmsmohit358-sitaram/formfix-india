@@ -1,13 +1,14 @@
 import React, { useRef, useState } from 'react';
 import { formatBytes, kib } from '../../lib/format';
 import { validateImageFile } from '../../lib/file-validation';
-import { processImage, readabilityWarning } from '../../lib/image-processing';
+import { readabilityWarning } from '../../lib/image-processing';
+import { processImageSmart } from '../../lib/image-worker-client';
 
 export default function SignatureTool() {
   const [file, setFile] = useState<File | null>(null);
   const [orig, setOrig] = useState<{ w: number; h: number; url: string } | null>(null);
   const [error, setError] = useState(''); const [busy, setBusy] = useState(false); const [progress, setProgress] = useState(0);
-  const [result, setResult] = useState<Awaited<ReturnType<typeof processImage>> | null>(null);
+  const [result, setResult] = useState<Awaited<ReturnType<typeof processImageSmart>> | null>(null);
   const [whiten, setWhiten] = useState(true); const [contrast, setContrast] = useState(20);
   const [cropW, setCropW] = useState(100); const [guide, setGuide] = useState<'none' | '3:1' | '2:1'>('3:1');
   const abortRef = useRef<AbortController | null>(null); const inputRef = useRef<HTMLInputElement>(null);
@@ -24,7 +25,7 @@ export default function SignatureTool() {
     try {
       // Crop: keep the central horizontal band of width cropW%. This preserves proportions (no stretching).
       const wFrac = cropW / 100; const x = (1 - wFrac) / 2;
-      const r = await processImage(file, { targetBytes: kib(20), minBytes: kib(10), whiten, contrast, crop: { x, y: 0.05, w: wFrac, h: 0.9 }, onProgress: (p) => setProgress(p), signal: ac.signal });
+      const r = await processImageSmart(file, { targetBytes: kib(20), minBytes: kib(10), whiten, contrast, crop: { x, y: 0.05, w: wFrac, h: 0.9 }, onProgress: (p) => setProgress(p), signal: ac.signal });
       setResult(r); if (!r.success) setError(r.note);
     } catch (e) { setError((e as Error).message || 'Processing failed.'); } finally { setBusy(false); }
   }

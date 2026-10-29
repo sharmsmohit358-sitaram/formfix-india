@@ -1,0 +1,12 @@
+---
+// Static step strip, rendered by Astro (no JavaScript). It is visible immediately,
+// even while the React tool below is still hydrating on idle, so a first-time
+// visitor always knows what to do next: choose, check, download.
+interface Props { steps: string[] }
+const { steps } = Astro.props;
+---
+<ol class="mt-4 flex flex-wrap gap-2 text-sm" aria-label="Steps">
+  {steps.map((s, i) => (
+    <li class="rounded-full bg-teal-50 border border-teal-200 px-3 py-1 font-semibold text-teal-900">{i + 1}. {s}</li>
+  ))}
+</ol>
