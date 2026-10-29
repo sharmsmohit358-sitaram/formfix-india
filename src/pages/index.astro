@@ -1,14 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
-import AdSlot from '../components/ads/AdSlot.tsx';
-const tools = [
-  { href: '/tools/image-to-20kb/', icon: '🖼️', badge: '20 KB', t: 'Resize Image to 20 KB', d: 'The size most forms ask for first. Shrink a photo or scan to 20,480 bytes or less, as JPEG, in your browser.', popular: true },
-  { href: '/tools/image-to-50kb/', icon: '📷', badge: '50 KB', t: 'Resize Image to 50 KB', d: 'A little more room for a clearer photo, still under 50 KB.' },
-  { href: '/tools/image-to-100kb/', icon: '🖨️', badge: '100 KB', t: 'Resize Image to 100 KB', d: 'More headroom for detailed scans and documents at 100 KB or less.' },
-  { href: '/tools/signature-10-to-20kb/', icon: '✍️', badge: '10–20 KB', t: 'Signature Resize to 10–20 KB', d: 'Crop, whiten and resize a signature into the 10–20 KB range — the other size every form checks.', popular: true },
-  { href: '/tools/pdf-under-100kb/', icon: '📄', badge: '100 KB', t: 'Compress PDF Under 100 KB', d: 'Preserve mode first. Rasterize mode only if you agree, with its trade-offs explained first.' },
-  { href: '/tools/pdf-under-200kb/', icon: '📑', badge: '200 KB', t: 'Compress PDF Under 200 KB', d: 'Same honest PDF approach, for a 200 KB limit.' },
-];
 ---
 <Base title="Resize Photo to 20 KB Online Free | Image, Signature & PDF Tools — FormFix India" description="Resize photo to 20 KB, 50 KB or 100 KB online free, signature to 10–20 KB, and compress PDF under 100 or 200 KB — in your browser, no upload, no sign-up." extraJsonLd={[
   { "@type": "WebApplication", "name": "FormFix India", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" } },
@@ -24,75 +15,60 @@ const tools = [
     <p class="text-[15px] md:text-xl text-teal-50 mt-2 md:mt-4 max-w-2xl">Resize photo, signature or PDF to your form's exact size — on your phone, no upload.</p>
     <div class="flex flex-wrap items-center gap-2 md:gap-3 mt-3 md:mt-6">
       <a class="btn btn-hero" href="/tools/image-to-20kb/">Fix my photo — 20 KB →</a>
-      <a class="underline font-bold text-sm md:text-base" href="#tools">See all 6 tools ↓</a>
-    </div>
-    <div class="hidden md:flex flex-wrap gap-2 mt-6" aria-label="Trust points">
-      <span class="chip">✓ No registration</span>
-      <span class="chip">✓ No payment</span>
-      <span class="chip">✓ File stays on your device</span>
+      <a class="btn btn-hero" href="/tools/signature-10-to-20kb/">Fix my signature →</a>
+      <a class="underline font-bold text-sm md:text-base" href="#tools">PDF or other size ↓</a>
     </div>
     <div class="mt-3 md:mt-6 rounded-lg md:rounded-2xl bg-white/10 px-3 py-2 md:p-4 max-w-2xl">
       <p class="text-xs md:text-sm"><strong>Example:</strong> 4.39&nbsp;MB photo → <strong>20,176 bytes</strong>.</p>
-      <p class="text-xs md:text-sm mt-1 hidden md:block">आपकी फ़ाइल सर्वर पर नहीं जाती — सब कुछ आपके ही फोन और ब्राउज़र में होता है।</p>
     </div>
   </section>
 
   <section id="tools" aria-labelledby="tools-h" class="mt-10">
-    <h2 id="tools-h" class="text-2xl md:text-3xl font-bold">Six free tools — pick the size your form asks for</h2>
-    <p class="text-slate-600 mt-2">Tap a tool, choose your file, preview it, and download only if the size is right.</p>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-5">{tools.map((t) => (
-      <article class="card tool-card p-5 relative">
-        {t.popular && <span class="badge-popular">Most used</span>}
-        <p class="text-3xl" aria-hidden="true">{t.icon}</p>
-        <p class="text-3xl font-extrabold text-teal-700 mt-2">{t.badge}</p>
-        <h3 class="font-bold text-lg mt-1"><a class="underline" href={t.href}>{t.t}</a></h3>
-        <p class="text-sm text-slate-600 mt-2">{t.d}</p>
-        <a class="btn btn-secondary mt-4 w-full" href={t.href}>Open tool →</a>
+    <h2 id="tools-h" class="text-2xl md:text-3xl font-bold">What do you want to fix?</h2>
+    <p class="text-slate-600 mt-2">First pick your file type. Then pick the size your form asks for. That's it.</p>
+    <div class="grid md:grid-cols-3 gap-4 mt-5">
+      <article class="card tool-card p-5">
+        <p class="text-3xl" aria-hidden="true">🖼️</p>
+        <h3 class="font-bold text-lg mt-2">My photo</h3>
+        <p class="text-sm text-slate-600 mt-1">For a photo or scan.</p>
+        <p class="mt-4 flex flex-col gap-2">
+          <a class="btn w-full" href="/tools/image-to-20kb/">Photo to 20 KB ★ Most used</a>
+          <a class="btn btn-secondary w-full" href="/tools/image-to-50kb/">Photo to 50 KB</a>
+          <a class="btn btn-secondary w-full" href="/tools/image-to-100kb/">Photo to 100 KB</a>
+        </p>
       </article>
-    ))}</div>
-  </section>
-
-  <AdSlot label="Homepage advertisement" />
-
-  <section class="mt-10 card p-6"><h2 class="text-2xl font-bold">Not sure where to start? Read a guide</h2><p class="mt-2 text-slate-700">Step-by-step, in plain language — including in Hindi where it helps.</p><p class="mt-4 flex flex-wrap gap-3"><a class="btn btn-secondary" href="/guides/photo-20kb/">Photo to 20 KB guide</a><a class="btn btn-secondary" href="/guides/signature-10-20kb/">Signature guide</a><a class="btn btn-secondary" href="/guides/pdf-under-100kb/">PDF guide</a></p></section>
-
-  <section class="mt-10" aria-labelledby="how-h">
-    <h2 id="how-h" class="text-2xl md:text-3xl font-bold">How it works — 3 steps, usually in seconds</h2>
-    <div class="grid md:grid-cols-3 gap-4 mt-5">
-      <div class="card p-5"><p class="text-3xl font-extrabold text-teal-700">1</p><h3 class="font-bold mt-2">Choose a tool</h3><p class="text-sm text-slate-600 mt-1">Pick the size your form actually asks for — not a guess.</p></div>
-      <div class="card p-5"><p class="text-3xl font-extrabold text-teal-700">2</p><h3 class="font-bold mt-2">Process in your browser</h3><p class="text-sm text-slate-600 mt-1">Preview before and after, and check the real byte size — not an estimate.</p></div>
-      <div class="card p-5"><p class="text-3xl font-extrabold text-teal-700">3</p><h3 class="font-bold mt-2">Download and re-check</h3><p class="text-sm text-slate-600 mt-1">Download locally, then re-check it in the <a class="underline" href="/application-checker/">application checker</a> before you submit.</p></div>
+      <article class="card tool-card p-5">
+        <p class="text-3xl" aria-hidden="true">✍️</p>
+        <h3 class="font-bold text-lg mt-2">My signature</h3>
+        <p class="text-sm text-slate-600 mt-1">For a signature image.</p>
+        <p class="mt-4">
+          <a class="btn w-full" href="/tools/signature-10-to-20kb/">Signature to 10–20 KB ★ Most used</a>
+        </p>
+      </article>
+      <article class="card tool-card p-5">
+        <p class="text-3xl" aria-hidden="true">📄</p>
+        <h3 class="font-bold text-lg mt-2">My PDF</h3>
+        <p class="text-sm text-slate-600 mt-1">For a PDF document.</p>
+        <p class="mt-4 flex flex-col gap-2">
+          <a class="btn btn-secondary w-full" href="/tools/pdf-under-100kb/">PDF under 100 KB</a>
+          <a class="btn btn-secondary w-full" href="/tools/pdf-under-200kb/">PDF under 200 KB</a>
+        </p>
+      </article>
     </div>
   </section>
 
-  <section class="mt-10" aria-labelledby="trust-h">
-    <h2 id="trust-h" class="text-2xl md:text-3xl font-bold">Why you can trust the result</h2>
-    <div class="grid md:grid-cols-3 gap-4 mt-5">
-      <div class="card p-5"><h3 class="font-bold">🔒 Private by design</h3><p class="text-sm text-slate-600 mt-2">There is no upload endpoint on this site. Your file is processed by code running in your own browser.</p></div>
-      <div class="card p-5"><h3 class="font-bold">📏 Measured honestly</h3><p class="text-sm text-slate-600 mt-2">20 KB means 20,480 bytes here. Every output is measured by its actual bytes, and a failed fit is shown as a failure — never faked.</p></div>
-      <div class="card p-5"><h3 class="font-bold">⚠️ No false promise</h3><p class="text-sm text-slate-600 mt-2">Resizing fixes size and format. It does not guarantee a form will accept your file — clarity, shape and the form's own rules still matter, and we say so.</p></div>
-    </div>
+  <section class="mt-10 card p-5" aria-labelledby="how-h">
+    <h2 id="how-h" class="text-xl font-bold">How it works</h2>
+    <p class="text-slate-700 mt-2"><strong>1.</strong> Choose your file &nbsp;→&nbsp; <strong>2.</strong> Check the real size &nbsp;→&nbsp; <strong>3.</strong> Download. No upload, no sign-up.</p>
+    <p class="mt-3 text-slate-700">Not sure? Read a <a class="underline font-bold" href="/guides/photo-20kb/">photo guide</a>, <a class="underline font-bold" href="/guides/signature-10-20kb/">signature guide</a> or <a class="underline font-bold" href="/guides/pdf-under-100kb/">PDF guide</a>, or <a class="underline font-bold" href="/application-checker/">check your file</a> before you submit.</p>
   </section>
 
-  <section class="mt-10 card p-6"><h2 class="text-2xl font-bold">Before you submit — quick checklist</h2>
-    <ul class="mt-3 space-y-2 text-slate-700">
-      <li>✓ Size is within the limit, checked by actual bytes — not just the file name.</li>
-      <li>✓ Format is right — JPEG for photos and signatures here, PDF for documents.</li>
-      <li>✓ Preview is clear enough to read — a tiny, blurry file can still be rejected.</li>
-      <li>✓ Shape is right — a 20 KB image can still be the wrong shape for the form.</li>
-    </ul>
-    <p class="mt-4"><a class="btn" href="/application-checker/">Check my file now →</a></p>
-  </section>
-
-  <section class="mt-10 card p-6"><h2 class="text-2xl font-bold">Why your file may be rejected</h2><p class="mt-2 text-slate-700">File size and image dimensions are different things. A 20 KB image can still be the wrong shape, and a correctly sized file can still be blurry. Changing a filename from .png to .jpg does not convert the file. And a resized file is not a guarantee that a form will accept it — clarity, format and the form's own rules still matter.</p>
-  <h3 class="font-bold mt-4">Common problems, in plain language</h3><ul class="list-disc ml-6 mt-2 text-slate-700"><li>How to check the actual file size on Android: Files app → file details, or the tool preview on this site.</li><li>Why compression reduces clarity: JPEG removes detail to save bytes. At very small targets, text and signatures get soft.</li><li>Why PDF compression may fail: a scanned, multi-page PDF may simply contain more image data than 100 KB can hold at readable quality.</li></ul>
-  <p class="mt-3 text-sm">Hindi help: यह साइट आपकी फ़ाइल को सर्वर पर नहीं भेजती। फ़ाइल आपके ही ब्राउज़र में तैयार होती है।</p></section>
-
-  <section class="mt-10"><h2 class="text-2xl font-bold">Frequently asked questions</h2>
-    <div class="space-y-4 mt-4">
-      <div class="card p-5"><h3 class="font-bold">Are my documents uploaded?</h3><p class="text-sm text-slate-700 mt-1">No. Processing uses Canvas and PDF libraries loaded in your browser. There is no upload endpoint in this site.</p></div>
-      <div class="card p-5"><h3 class="font-bold">Does resizing guarantee acceptance?</h3><p class="text-sm text-slate-700 mt-1">No. It only fixes size, format and dimensions you can check locally. The application authority decides acceptance.</p></div>
-      <div class="card p-5"><h3 class="font-bold">What does 20 KB mean here?</h3><p class="text-sm text-slate-700 mt-1">20 KiB = 20,480 bytes. Outputs are measured by actual bytes, not by an estimate.</p></div>
+  <section class="mt-10">
+    <h2 class="text-xl font-bold">Questions? Tap to open</h2>
+    <div class="space-y-3 mt-3">
+      <details class="card p-4"><summary class="font-bold cursor-pointer">Are my documents uploaded?</summary><p class="text-sm text-slate-700 mt-2">No. Processing uses Canvas and PDF libraries loaded in your browser. There is no upload endpoint in this site.</p></details>
+      <details class="card p-4"><summary class="font-bold cursor-pointer">Does resizing guarantee acceptance?</summary><p class="text-sm text-slate-700 mt-2">No. It only fixes size, format and dimensions you can check locally. The application authority decides acceptance.</p></details>
+      <details class="card p-4"><summary class="font-bold cursor-pointer">What does 20 KB mean here?</summary><p class="text-sm text-slate-700 mt-2">20 KiB = 20,480 bytes. Outputs are measured by actual bytes, not by an estimate.</p></details>
     </div>
   </section>
 
